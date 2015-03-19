@@ -15,24 +15,63 @@ Additionally I’ve done a simple service in python to explore keyboard's functi
 
 Code is divided in two parts (driver and service) in case you just want one of them.
 
-## Installation
-### Driver
+## Driver
+### Installation
 Prior to install driver you probably need run this:
 ```sh
 $ sudo apt-get update
 $ sudo apt-get install git build-essential linux-source
 ```
 Running "***driver/install.sh***" should be enough to get module compiled and running. This script is self-explanatory; compile kernel module, install and load. Additionally it adds an entry on "***/etc/modules***" to persist between restarts.
+```sh
+$ cd driver
+$ sudo ./install.sh
+```
+### Usage
+This module exports some parameters to "***/sys/module/tuxedo_wmi/parameters/***" that you can use to manipulate keyboard's lights and colors.
+- **kb_brightness** - Set keyboard brightness (from 0 to 10)
+- **kb_left** - Set color of keyboard's left section
+- **kb_center** - Set color of keyboard's central section
+- **kb_right** - Set color of keyboard's right section
+- **kb_off** - Turns keyboard lights off/on
 
-### Service
+#### Examples
+```sh
+$ cd /sys/module/tuxedo_wmi/parameters/
+# set keyboard brightness to level 5
+$ sudo su -c 'echo "5" > kb_brightness'
+# set purple color on keyboard's center section (see all color codes above)
+$ sudo su -c 'echo "3" > kb_center'
+# set keyboard lights off
+$ sudo su -c 'echo "1" > kb_off'
+```
+#### Color codes
+```
+'off':    '0',
+'blue':   '1',
+'red':    '2',
+'purple': '3',
+'green':  '4',
+'ice':    '5',
+'yellow': '6',
+'white':  '7',
+'aqua':   '8',
+```
+
+## Service
+### Installation
 Prior to install service you need install some dependencies:
 ```sh
 $ pip install -r service/requirements.txt
 ```
 Run "***service/install.sh***" to copy app to "***/var/lib/kb_light_stats***" and config file to "***/etc/kb_light_stats/kb_light_stats.conf***".
-Edit this config file to fit your needs.
+```sh
+$ cd service
+$ sudo ./install.sh
+```
+> Edit config file to fit your needs.
 
-## Usage
+### Usage
 Launch daemon:
 ```sh
 $ sudo service/kb_light_stats.py

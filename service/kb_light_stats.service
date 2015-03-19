@@ -1,0 +1,13 @@
+[Unit]
+Description=Clevo Keyboard Backlight
+
+[Service]
+Type=forking
+User=root
+Group=root
+WorkingDirectory=/var/lib/kb_light_stats/
+PIDFile=/var/run/kb_light_stats.pid
+ExecStart=/var/lib/kb_light_stats/kb_light_stats.py
+
+[Install]
+WantedBy=multi-user.target

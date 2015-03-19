@@ -7,6 +7,7 @@ if [ ! -d "$INSTALL_DIR" ]; then
 	mkdir -p $INSTALL_DIR
 fi
 cp -v ./kb_light_stats.conf $INSTALL_DIR/kb_light_stats.conf.template
+cp -v ./kb_light_stats.service /lib/systemd/system/
 cp -v ./*.py $INSTALL_DIR/
 
 if [ ! -d "$INSTALL_DIR/stats" ]; then

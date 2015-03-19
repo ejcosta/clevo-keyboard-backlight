@@ -32,6 +32,12 @@ $ pip install -r service/requirements.txt
 Run "***service/install.sh***" to copy app to "***/var/lib/kb_light_stats***" and config file to "***/etc/kb_light_stats/kb_light_stats.conf***".
 Edit this config file to fit your needs.
 
+## Usage
+Launch daemon:
+```sh
+$ sudo service/kb_light_stats.py
+```
+
 ### Todo's
  - Install python app as a service
 

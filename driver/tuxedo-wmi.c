@@ -303,7 +303,8 @@ static int tuxedo_wmi_evaluate_wmbb_method(u32 method_id, u32 arg, u32 *retval)
 
 	TUXEDO_DEBUG("%0#4x  IN : %0#6x\n", method_id, arg);
 
-	status = wmi_evaluate_method(CLEVO_GET_GUID, 0x01,
+	// https://lore.kernel.org/patchwork/patch/802406/
+	status = wmi_evaluate_method(CLEVO_GET_GUID, 0x00,
 	                             method_id, &in, &out);
 
 	if (unlikely(ACPI_FAILURE(status)))

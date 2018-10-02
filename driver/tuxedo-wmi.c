@@ -1012,7 +1012,16 @@ static struct dmi_system_id __initdata tuxedo_dmi_table[] = {
 		},
 		.callback = tuxedo_dmi_matched,
 		.driver_data = &kb_full_color_ops,
+	},
+	{
+		.ident = "Hyperbook N8xxEP6",
+		.matches = {
+			DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),
+			DMI_MATCH(DMI_PRODUCT_NAME, "N8xxEP6"),
 		},
+		.callback = tuxedo_dmi_matched,
+		.driver_data = &kb_full_color_ops,
+	},
 	{
 		/* terminating NULL entry */
 	},

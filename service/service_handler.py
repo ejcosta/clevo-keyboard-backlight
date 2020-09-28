@@ -11,6 +11,7 @@ from dbus_handler import (
 from stats import (
     cpu,
     memory,
+    gpu
 )
 from TuxedoWmi.utils import percent_to_kb_color
 from dbus.mainloop.glib import DBusGMainLoop
@@ -78,6 +79,11 @@ def update_stats():
     memory_cfg = config.get('stats', 'memory', '')
     if memory_cfg in ('left', 'center', 'right'):
         kb_driver.set_colors({memory_cfg: percent_to_kb_color(memory.get_mem_usage(), thresholds)})
+
+    # GPU
+    gpu_cfg = config.get('stats', 'gpu', '')
+    if gpu_cfg in ('left', 'center', 'right'):
+        kb_driver.set_colors({gpu_cfg: percent_to_kb_color(gpu.get_gpu_load(), thresholds)})
 
 
 if __name__ == "__main__":

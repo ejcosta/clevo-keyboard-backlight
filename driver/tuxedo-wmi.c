@@ -1014,6 +1014,15 @@ static struct dmi_system_id __initdata tuxedo_dmi_table[] = {
 		.driver_data = &kb_full_color_ops,
 	},
 	{
+		.ident = "Clevo NP50DE_DB",
+		.matches = {
+			DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),
+			DMI_MATCH(DMI_PRODUCT_NAME, "NP50DE_DB"),
+		},
+		.callback = tuxedo_dmi_matched,
+		.driver_data = &kb_full_color_ops,
+	},
+	{
 		.ident = "Hyperbook N8xxEP6",
 		.matches = {
 			DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),
@@ -1025,12 +1034,13 @@ static struct dmi_system_id __initdata tuxedo_dmi_table[] = {
 	{
 		.ident = "Lambda TensorBook",
 		.matches = {
-      DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),
+      			DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),
 			DMI_MATCH(DMI_PRODUCT_NAME, "P9XXEN_EF_ED"),
-    },
+    		},
 		.callback = tuxedo_dmi_matched,
 		.driver_data = &kb_full_color_ops,
-	}
+	},
+	{
 		.ident = "Hyperbook N8xEJEK",
 		.matches = {
 			DMI_MATCH(DMI_SYS_VENDOR, "Notebook"),

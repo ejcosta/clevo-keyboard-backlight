@@ -1,5 +1,7 @@
 # clevo-keyboard-backlight
 
+:warning: __This repo has been archived due to lack of time to maintain it, feel free to fork!__ :warning:
+
 This is a bundle of TuxedoWmi driver for Clevo's keyboard with some additional extras. 
 I've made some changes to kernel module in order to export parameters so you can control keyboard sectors and colors independently. 
 A mix between [this][1] and [this][2]. 
